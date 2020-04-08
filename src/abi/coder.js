@@ -253,9 +253,9 @@ class IntegerCoder extends Coder {
    * @return {Buffer}
    */
   encode(value) {
-    assert(Number.isInteger(value) || value instanceof JSBI, {
+    assert(Number.isInteger(value) || value instanceof JSBI || typeof value === 'string' || value instanceof String, {
       message: 'unexpected type',
-      expect: 'int|BigInt',
+      expect: 'int|BigInt|string',
       got: value,
       coder: this,
     });
